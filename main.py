@@ -26,11 +26,14 @@ for letter in list10:
 
 #####
 
-class Values:
+class Value:
     def __init__(self, word):
-        self.word = word.upper
-        self.score(self.word)
+        self.score(word.upper())
 
     
     def score(self, word):
-        pass
+        score = 0
+        for letter in word:
+            score += letters_to_points[letter]
+        return print(score)
+
