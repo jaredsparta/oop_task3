@@ -44,6 +44,8 @@ class Value:
 
     
     def check_past_words(self):
+        if not self.past_words:
+            print("You haven't checked any words yet!")
         for words in self.past_words:
             print(words)
 
@@ -58,9 +60,12 @@ while True:
                         """)
 
     if choice == "1":
-        word = input("\nWhat word?")
+        word = input("\nWhat word? ")
+        if not word.isalpha():
+            print("Only letters allowed!")
+            continue
         game.add_word(word)
-        print(game.score(word))
+        print(f"{word} has a score of {game.score(word)}")
 
     if choice == "2":
         game.check_past_words()
